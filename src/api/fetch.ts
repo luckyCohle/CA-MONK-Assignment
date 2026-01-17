@@ -11,7 +11,7 @@ export const getAllBlogs = async (): Promise<BlogPostType[]> => {
   }
 }
 
-export const getBlogWithId = async (blogId: number): Promise<BlogPostType> => {
+export const getBlogWithId = async (blogId: string): Promise<BlogPostType> => {
   try {
     const response = await axios.get(`http://localhost:3001/blogs/${blogId}`)
     return response.data

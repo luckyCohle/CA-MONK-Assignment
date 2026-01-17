@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { GraduationCap } from 'lucide-react';
+import { Link } from 'react-router-dom';
 function Navbar() {
     return (
         <div className="bg-white w-full p-3 mb-3  z-10 border-b border-1/ border-gray-200 flex justify-between items-center ">
@@ -21,7 +22,7 @@ function Navbar() {
                 </div>
             </div>
             <div className='flex justify-center items-center mr-4'>
-                <Button variant={"monk"} >Profile</Button>
+                <Link to={"/add"}><Button variant={"monk"} >Add Blog</Button></Link>
             </div>
         </div>
     )

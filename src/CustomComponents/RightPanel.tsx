@@ -10,10 +10,10 @@ import { useQuery } from "@tanstack/react-query"
 import { format } from "date-fns"
 import { RightPanelSkeleton } from "./RightPanelSkeleton"
 
-function RightPanel({ blogId }: { blogId: number | null }) {
+function RightPanel({ blogId }: { blogId: string | null }) {
   const { data: blogData, isLoading } = useQuery<BlogPostType>({
     queryKey: ["blog", blogId],
-    queryFn: () => getBlogWithId(blogId as number),
+    queryFn: () => getBlogWithId(blogId || "1"),
     enabled: !!blogId,
   })
 
@@ -26,7 +26,7 @@ function RightPanel({ blogId }: { blogId: number | null }) {
   }
 
   if (isLoading) {
-    return <div><RightPanelSkeleton/></div>
+    return <div><RightPanelSkeleton /></div>
   }
 
   if (!blogData) return null
@@ -49,7 +49,7 @@ function RightPanel({ blogId }: { blogId: number | null }) {
           </CardTitle>
         </CardHeader>
 
-       
+
         <div className="flex border-y bg-muted m-6 bg-stone-400 rounded-2xl">
           <div className="flex flex-col flex-1 items-center gap-1 p-3 border-r">
             <span className="text-xs text-muted-foreground">

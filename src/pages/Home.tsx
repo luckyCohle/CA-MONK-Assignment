@@ -4,7 +4,7 @@ import RightPanel from "@/CustomComponents/RightPanel";
 import { useState } from "react";
 
 function Home() {
-  const [activeCard, SetActiveCard] = useState<number>(1);
+  const [activeCard, SetActiveCard] = useState<string>("1");
   return (
     <div className="w-full h-full flex-col">
       <Intro />
